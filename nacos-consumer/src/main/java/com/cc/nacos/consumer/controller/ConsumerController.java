@@ -1,6 +1,9 @@
 package com.cc.nacos.consumer.controller;
 
+import com.cc.nacos.api.common.DataResult;
+import com.cc.nacos.consumer.feignclient.IndexFeignClient;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,11 +18,16 @@ public class ConsumerController {
 
     @Resource
     private RestTemplate restTemplate;
+    @Resource
+    private IndexFeignClient indexFeignClient;
 
     @GetMapping("index")
-    public String indexPage() {
+    public DataResult indexPage() {
         log.info("\nConsumerController -> indexPage: ");
-        String pageStr = restTemplate.getForObject("http://nacos-discovery/index", String.class);
-        return pageStr;
+        // rest调用
+        //DataResult dataResult = restTemplate.getForObject("http://nacos-discovery/index", DataResult.class);
+        // feign调用
+        DataResult dataResult = indexFeignClient.indexInfo();
+        return dataResult;
     }
 }

@@ -9,6 +9,7 @@
         <module>nacos-config</module>
         <module>nacos-discovery</module>
         <module>nacos-consumer</module>
+        <module>nacos-api</module>
     </modules>
 
     <parent>
@@ -29,6 +30,13 @@
 
     <dependencyManagement>
         <dependencies>
+            <!-- base -->
+            <dependency>
+                <groupId>com.cc.nacos</groupId>
+                <artifactId>nacos-api</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
@@ -38,6 +46,13 @@
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-web</artifactId>
+                <version>${springcould.version}</version>
+            </dependency>
+
+            <!-- springcloud -->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-openfeign</artifactId>
                 <version>${springcould.version}</version>
             </dependency>
 
