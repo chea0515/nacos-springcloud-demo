@@ -24,7 +24,7 @@
 
     <properties>
         <nacos-config.version>2.2.1.RELEASE</nacos-config.version>
-        <springcould.version>2.2.1.RELEASE</springcould.version>
+        <springcould.version>2.5.12</springcould.version>
         <lombok.version>1.18.12</lombok.version>
     </properties>
 
